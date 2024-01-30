@@ -47,6 +47,8 @@ has_one :purchasing_info
 Association
 belongs_to :user
 has_one :sending_info
+belongs_to :item
+
 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 ## sending_infos
 
