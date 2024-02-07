@@ -22,8 +22,8 @@ class OrdersController < ApplicationController
       render :index, status: :unprocessable_entity
     end
   end
-  
-  private
+
+private
   
   def order_params
     params.require(:order_address).permit(:postal_code, :area_id, :city, :street, :building_name, :phone_number).merge(user_id: current_user.id, item_id: @item.id ,token: params[:token])
