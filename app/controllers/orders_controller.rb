@@ -18,11 +18,12 @@ class OrdersController < ApplicationController
       redirect_to root_path
     else
       gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
+      
       render :index, status: :unprocessable_entity
     end
   end
-  
-  private
+
+private
   
   def order_params
     params.require(:order_address).permit(:postal_code, :area_id, :city, :street, :building_name, :phone_number).merge(user_id: current_user.id, item_id: @item.id ,token: params[:token])
